@@ -11,3 +11,13 @@ Listet Primzahlen dynamisch im angegebenen Bereich auf. (Bis 16 Stellen) Mit neu
 5. Doppelklick drauf zum Starten des Programms -> Fertig! :)
 
 Ps: Wenn es mit Google Chrom geöffnet wird rechnet es am Schnellsten! :))))
+
+# Oder:
+
+### Vorschau
+
+z.B. auf:
+
+https://htmlpreview.github.io/
+
+- Dort die URL des .html Files Eingeben.
