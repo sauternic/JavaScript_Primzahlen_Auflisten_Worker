@@ -2,6 +2,9 @@
 
 Listet Primzahlen dynamisch im angegebenen Bereich auf. (Bis 16 Stellen) Mit neuem Thread für die Berechnung(Worker-Thread))
 
+# [Ausführen](https://sauternic.github.io/JavaScript_Primzahlen_Auflisten_Worker/)
+
+
 ### Anleitung zur Verwendung des Programms:
 
 1. Code Kopieren.
@@ -11,9 +14,3 @@ Listet Primzahlen dynamisch im angegebenen Bereich auf. (Bis 16 Stellen) Mit neu
 5. Doppelklick drauf zum Starten des Programms -> Fertig! :)
 
 Ps: Wenn es mit Google Chrom geöffnet wird rechnet es am Schnellsten! :))))
-
-# Oder:
-
-### Vorschau
-
-[Ausführen](https://sauternic.github.io/JavaScript_Primzahlen_Auflisten_Worker/)
