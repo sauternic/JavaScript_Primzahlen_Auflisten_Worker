@@ -4,6 +4,16 @@
 <head>
     <meta charset="utf-8">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125935075-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-125935075-1');
+    </script>
+    
     <script id="worker_Thread1">
         //messageEvent Empfangen
         this.onmessage = suchePrimzahlen;
@@ -52,7 +62,7 @@
                     break;
             }
             //Einbau Worker+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-            
+
             var str_worker_Thread1 = document.querySelector('#worker_Thread1').textContent;
             var worker = new Worker(URL.createObjectURL(new Blob([str_worker_Thread1])));
             //Empfangen (messageEvent)
@@ -60,7 +70,7 @@
             //Senden und Starten des workerThreads!
             //Argumente in Array verpackt,
             worker.postMessage([anfang, ende]);
-            
+
             //Ende Worke+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             function aufrufEventMethode(ergO) {
                 //Auspacken des Ergebnisses aus ergO (messageEvent)
@@ -70,12 +80,12 @@
                 //List Element Erzeugen
                 var li = document.createElement("li");
                 //Textknoten Erzeugen
-                    //Format Methode siehe Unten! :)))
-                    if (typeof erg === 'number')
-                        var text = document.createTextNode(erg.format());
-                    else
-                        //Wegen String 'Fertig :)' am Schluss
-                        var text = document.createTextNode(erg);
+                //Format Methode siehe Unten! :)))
+                if (typeof erg === 'number')
+                    var text = document.createTextNode(erg.format());
+                else
+                    //Wegen String 'Fertig :)' am Schluss
+                    var text = document.createTextNode(erg);
                 //Textknoten in List Element Einhängen
                 li.appendChild(text);
                 //Ganzes Element in Liste Einhängen
@@ -86,37 +96,37 @@
     <script>
         //format Methode für den Number Typ, setzt Tausendertrennzeichen und 'geht' mit 
         //Nachkommastellen mit .
-        Number.prototype.format = function(){
-                //Zahl in String Konvertieren.
-                var str =  this.toString();
-                
-                //Wenn Nachkommastellen mit .
-                if (str.indexOf('.') > -1){
-                    // Gibt 2 Teile [0] und [1]
-                    var str_split = str.split('.')
-                    //Nur Vorkommateil zur Weiterverabeitung.
-                    str = str_split[0];
+        Number.prototype.format = function () {
+            //Zahl in String Konvertieren.
+            var str = this.toString();
+
+            //Wenn Nachkommastellen mit .
+            if (str.indexOf('.') > -1) {
+                // Gibt 2 Teile [0] und [1]
+                var str_split = str.split('.')
+                //Nur Vorkommateil zur Weiterverabeitung.
+                str = str_split[0];
+            }
+
+            var strArr = str.split('');
+
+            var str_temp = '';
+            while (strArr.length > 0) {
+                for (var y = 0; y < 3; y++) {
+                    if (strArr.length > 0)
+                        //Zusammenbau des neuen Strings in str_temp
+                        str_temp = strArr.pop() + str_temp;
                 }
-    
-                var strArr = str.split('');
-                
-                var str_temp = '';
-                while(strArr.length > 0){
-                    for (var y = 0; y < 3; y++) {
-                          if(strArr.length > 0)
-                          //Zusammenbau des neuen Strings in str_temp
-                          str_temp = strArr.pop() + str_temp;              
-                    }
-                    if(strArr.length > 0)
+                if (strArr.length > 0)
                     //Tausendertrennzeichen ' von links Einfügen
                     str_temp = "'" + str_temp;
-                }
-                //str_split[1] ist Nachkommateil -> wieder Anhängen.
-                if(str_split){
-                    return str_temp += '.' + str_split[1] 
-                }
-                return str_temp;
             }
+            //str_split[1] ist Nachkommateil -> wieder Anhängen.
+            if (str_split) {
+                return str_temp += '.' + str_split[1]
+            }
+            return str_temp;
+        }
     </script>
 </head>
 
@@ -124,7 +134,9 @@
 
     <h1>Ergebnis-Ausgabe</h1>
 
-    <h1><ul id="berechnung_Ausgabe1"></ul></h1>
+    <h1>
+        <ul id="berechnung_Ausgabe1"></ul>
+    </h1>
 
     <noscript>
         <h1>JavaScript muss aktiviert Sein! :(</h1>
